@@ -19,8 +19,8 @@ async function getLocationData(string) {
 }
 
 async function getTemp(type, string) {
-  const data = await getWeatherStats(string);
-  const temp = (type === 'c') ? await data.temp_c : await data.temp_f;
+  const weatherData = await getWeatherStats(string);
+  const temp = (type === 'c') ? await weatherData.temp_c : await weatherData.temp_f;
   console.log(`The temperature is ${temp}${type}`);
 }
 
