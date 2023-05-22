@@ -1,24 +1,27 @@
 import './style.css';
-import getData, {
-  getWeatherStats, getLocationData, getFeelTemp, getTemp, getWindSpeed, getImage, getPressure,
-} from '../modules/weatherAPI';
+import { weather } from '../modules/weatherAPI';
 
-async function addInfo(string) {
+const type = 'c';
+
+async function renderInfo(string) {
+  const api = await weather;
   const container = document.querySelector('.container');
+  container.innerHTML = '';
 
   const temp = document.createElement('p');
   const windSpeed = document.createElement('p');
   const pressure = document.createElement('p');
   const image = new Image();
-  image.src = await getImage(string);
 
-  temp.innerHTML = await getTemp('c', string);
-  windSpeed.innerHTML = await getWindSpeed(string);
-  pressure.innerHTML = await getPressure(string);
+  temp.innerHTML = await api.getTemp(type, string);
+  windSpeed.innerHTML = await api.getWindSpeed(string);
+  pressure.innerHTML = await api.getPressure(string);
+  image.src = await api.getImage(string);
+
   container.append(temp, windSpeed, pressure, image);
 }
 
-addInfo('Manila');
+renderInfo('Dubai');
 
 // getTemp('c', 'dubai');
 // getFeelTemp('c', 'dubai');
