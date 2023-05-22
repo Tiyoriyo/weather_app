@@ -3,8 +3,10 @@ import weatherAPI from './modules/weatherAPI';
 
 async function print(string) {
   const API = await weatherAPI;
-  API.getData(string);
-  API.getTemperature(string);
+  await API.getData(string);
+  await API.getTemperature(string);
+  await API.changeTemperatureType();
+  await API.getTemperature(string);
 }
 
 print('dubai');

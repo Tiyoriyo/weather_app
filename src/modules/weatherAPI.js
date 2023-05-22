@@ -16,7 +16,12 @@ const weatherAPI = (async () => {
     return temp;
   }
 
-  return { getData, getTemperature };
+  function changeTemperatureType() {
+    tempType = (tempType === 'c') ? 'f' : 'c';
+    console.log(tempType);
+  }
+
+  return { getData, getTemperature, changeTemperatureType };
 })();
 
 export default weatherAPI;
