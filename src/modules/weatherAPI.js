@@ -64,6 +64,13 @@ const weatherAPI = (async () => {
     return wind_kph;
   }
 
+  async function getWindDirection(string) {
+    const data = await getData(string);
+    const { wind_dir } = data.current;
+    console.log(`Wind Direction: ${wind_dir}`);
+    return wind_dir;
+  }
+
   return {
     getData,
     getTemperature,
@@ -74,6 +81,7 @@ const weatherAPI = (async () => {
     getAvgTemperature,
     getCondition,
     getWindSpeed,
+    getWindDirection,
   };
 })();
 
