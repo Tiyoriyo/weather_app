@@ -7,6 +7,7 @@ async function print(string) {
     console.log(await API.getData(string));
     await API.getData(string);
     await API.getTemperature(string);
+    await API.getFeelTemperature(string);
   } catch (error) {
     console.error('The input you have inserted is not a valid location name', error);
   }

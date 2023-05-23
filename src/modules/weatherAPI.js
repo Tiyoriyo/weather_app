@@ -11,7 +11,14 @@ const weatherAPI = (async () => {
   async function getTemperature(string) {
     const data = await getData(string);
     const temp = (tempType === 'c') ? data.current.temp_c : data.current.temp_f;
-    console.log(temp);
+    console.log(`Real Temp: ${temp}`);
+    return temp;
+  }
+
+  async function getFeelTemperature(string) {
+    const data = await getData(string);
+    const temp = (tempType === 'c') ? data.current.feelslike_c : data.current.feelslike_f;
+    console.log(`Feel Temp: ${temp}`);
     return temp;
   }
 
@@ -19,7 +26,9 @@ const weatherAPI = (async () => {
     tempType = (tempType === 'c') ? 'f' : 'c';
   }
 
-  return { getData, getTemperature, changeTemperatureType };
+  return {
+    getData, getTemperature, changeTemperatureType, getFeelTemperature,
+  };
 })();
 
 export default weatherAPI;
