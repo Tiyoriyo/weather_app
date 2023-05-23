@@ -13,6 +13,7 @@ async function print(string) {
     await API.getAvgTemperature(string);
     await API.getCondition(string);
     await API.getWindSpeed(string);
+    await API.getWindDirection(string);
   } catch (error) {
     console.error('The input you have inserted is not a valid location name', error);
   }
