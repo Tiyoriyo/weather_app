@@ -9,6 +9,10 @@ async function print(string) {
     await API.getTemperature(string);
     await API.getFeelTemperature(string);
     await API.getMinTemperature(string);
+    await API.getMaxTemperature(string);
+    await API.getAvgTemperature(string);
+    await API.getCondition(string);
+    await API.getWindSpeed(string);
   } catch (error) {
     console.error('The input you have inserted is not a valid location name', error);
   }

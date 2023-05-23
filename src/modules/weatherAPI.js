@@ -11,14 +11,14 @@ const weatherAPI = (async () => {
   async function getTemperature(string) {
     const data = await getData(string);
     const temp = (tempType === 'c') ? data.current.temp_c : data.current.temp_f;
-    console.log(`Real Temp: ${temp}`);
+    console.log(`Real Temp: ${temp} ${tempType.toUpperCase()}`);
     return temp;
   }
 
   async function getFeelTemperature(string) {
     const data = await getData(string);
     const temp = (tempType === 'c') ? data.current.feelslike_c : data.current.feelslike_f;
-    console.log(`Feel Temp: ${temp}`);
+    console.log(`Feel Temp: ${temp} ${tempType.toUpperCase()}`);
     return temp;
   }
 
@@ -26,7 +26,23 @@ const weatherAPI = (async () => {
     const data = await getData(string);
     const forecast = data.forecast.forecastday[0];
     const temp = (tempType === 'c') ? forecast.day.mintemp_c : forecast.day.mintemp_f;
-    console.log(`Min Temp: ${temp}`);
+    console.log(`Min Temp: ${temp} ${tempType.toUpperCase()}`);
+    return temp;
+  }
+
+  async function getMaxTemperature(string) {
+    const data = await getData(string);
+    const forecast = data.forecast.forecastday[0];
+    const temp = (tempType === 'c') ? forecast.day.maxtemp_c : forecast.day.maxtemp_f;
+    console.log(`Max Temp: ${temp} ${tempType.toUpperCase()}`);
+    return temp;
+  }
+
+  async function getAvgTemperature(string) {
+    const data = await getData(string);
+    const forecast = data.forecast.forecastday[0];
+    const temp = (tempType === 'c') ? forecast.day.avgtemp_c : forecast.day.avgtemp_f;
+    console.log(`Avg Temp: ${temp} ${tempType.toUpperCase()}`);
     return temp;
   }
 
@@ -34,8 +50,30 @@ const weatherAPI = (async () => {
     tempType = (tempType === 'c') ? 'f' : 'c';
   }
 
+  async function getCondition(string) {
+    const data = await getData(string);
+    const condition = data.current.condition.text;
+    console.log(`Condition: ${condition}`);
+    return condition;
+  }
+
+  async function getWindSpeed(string) {
+    const data = await getData(string);
+    const { wind_kph } = data.current;
+    console.log(`Wind Speed: ${wind_kph} km/h`);
+    return wind_kph;
+  }
+
   return {
-    getData, getTemperature, changeTemperatureType, getFeelTemperature, getMinTemperature,
+    getData,
+    getTemperature,
+    changeTemperatureType,
+    getFeelTemperature,
+    getMinTemperature,
+    getMaxTemperature,
+    getAvgTemperature,
+    getCondition,
+    getWindSpeed,
   };
 })();
 
