@@ -5,7 +5,6 @@ const weatherAPI = (async () => {
   async function getData(string) {
     const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=9f51d71599cf4a5ba3782327231605&q=${string}`);
     const data = await response.json();
-    console.log(data);
     return data;
   }
 
@@ -18,7 +17,6 @@ const weatherAPI = (async () => {
 
   function changeTemperatureType() {
     tempType = (tempType === 'c') ? 'f' : 'c';
-    console.log(tempType);
   }
 
   return { getData, getTemperature, changeTemperatureType };
