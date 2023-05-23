@@ -71,6 +71,13 @@ const weatherAPI = (async () => {
     return wind_dir;
   }
 
+  async function getPressure(string) {
+    const data = await getData(string);
+    const { pressure_mb } = data.current;
+    console.log(`Pressure: ${pressure_mb} mb`);
+    return pressure_mb;
+  }
+
   return {
     getData,
     getTemperature,
@@ -82,6 +89,7 @@ const weatherAPI = (async () => {
     getCondition,
     getWindSpeed,
     getWindDirection,
+    getPressure,
   };
 })();
 
