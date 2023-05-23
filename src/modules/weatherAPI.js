@@ -22,12 +22,20 @@ const weatherAPI = (async () => {
     return temp;
   }
 
+  async function getMinTemperature(string) {
+    const data = await getData(string);
+    const forecast = data.forecast.forecastday[0];
+    const temp = (tempType === 'c') ? forecast.day.mintemp_c : forecast.day.mintemp_f;
+    console.log(`Min Temp: ${temp}`);
+    return temp;
+  }
+
   function changeTemperatureType() {
     tempType = (tempType === 'c') ? 'f' : 'c';
   }
 
   return {
-    getData, getTemperature, changeTemperatureType, getFeelTemperature,
+    getData, getTemperature, changeTemperatureType, getFeelTemperature, getMinTemperature,
   };
 })();
 
