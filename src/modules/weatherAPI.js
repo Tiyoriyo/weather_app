@@ -78,6 +78,13 @@ const weatherAPI = (async () => {
     return pressure_mb;
   }
 
+  async function getPrecipitation(string) {
+    const data = await getData(string);
+    const { precip_mm } = data.current;
+    console.log(`Precipitation(mm): ${precip_mm} mm`);
+    return precip_mm;
+  }
+
   return {
     getData,
     getTemperature,
@@ -90,6 +97,7 @@ const weatherAPI = (async () => {
     getWindSpeed,
     getWindDirection,
     getPressure,
+    getPrecipitation,
   };
 })();
 
