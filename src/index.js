@@ -2,11 +2,13 @@ import './style.css';
 import weatherAPI from './modules/weatherAPI';
 
 async function print(string) {
+  const currentTemp = document.querySelector('.tempCount');
+  const location = document.querySelector('.locationName');
   try {
     const API = await weatherAPI;
     console.log(await API.getData(string));
     await API.getData(string);
-    await API.getTemperature(string);
+    currentTemp.textContent = await API.getTemperature(string);
     await API.getFeelTemperature(string);
     await API.getMinTemperature(string);
     await API.getMaxTemperature(string);
@@ -28,4 +30,4 @@ button.addEventListener('click', async () => {
   await print('Dubai');
 });
 
-print('Dubai');
+print('Manchester');
