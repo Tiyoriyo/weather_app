@@ -9,6 +9,7 @@ async function print(string) {
     console.log(await API.getData(string));
     await API.getData(string);
     currentTemp.textContent = await API.getTemperature(string);
+    location.textContent = await API.getLocation(string);
     await API.getFeelTemperature(string);
     await API.getMinTemperature(string);
     await API.getMaxTemperature(string);

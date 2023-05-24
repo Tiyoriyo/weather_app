@@ -95,6 +95,7 @@ const weatherAPI = (async () => {
     getWindDirection,
     getPressure,
     getPrecipitation,
+    getLocation,
   };
 })();
 
