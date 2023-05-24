@@ -76,6 +76,12 @@ const weatherAPI = (async () => {
     return precip_mm;
   }
 
+  async function getLocation(string) {
+    const data = await getData(string);
+    const { name } = data.location;
+    return name;
+  }
+
   return {
     getData,
     getTemperature,
