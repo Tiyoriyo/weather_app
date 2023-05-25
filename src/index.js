@@ -1,26 +1,24 @@
 import './style.css';
 import weatherAPI from './modules/weatherAPI';
 
-async function print(string) {
-  const currentTemp = document.querySelector('.tempCount');
-  const location = document.querySelector('.locationName');
+let inputLocation;
+
+async function renderData(string) {
+  const API = await weatherAPI;
+
+  // Upper Container DOM Items
+  const tempCount = document.querySelector('.tempCount');
+  const locationName = document.querySelector('.locationName');
+
+  // Lower Container DOM Items
+  // Summary Info DOM Items
+  const conditionImg = document.querySelector('.conditionImgContainer');
+
   try {
-    const API = await weatherAPI;
-    console.log(await API.getData(string));
-    await API.getData(string);
-    currentTemp.textContent = await API.getTemperature(string);
-    location.textContent = await API.getLocation(string);
-    await API.getFeelTemperature(string);
-    await API.getMinTemperature(string);
-    await API.getMaxTemperature(string);
-    await API.getAvgTemperature(string);
-    await API.getCondition(string);
-    await API.getWindSpeed(string);
-    await API.getWindDirection(string);
-    await API.getPressure(string);
-    await API.getPrecipitation(string);
-  } catch (error) {
-    console.error('The input you have inserted is not a valid location name', error);
+    tempCount.textContent = await API.getTemperature(string);
+    locationName.textContent = await API.getLocation(string);
+  } catch {
+    console.error('Whoops');
   }
 }
 
@@ -28,7 +26,7 @@ const button = document.querySelector('button');
 button.addEventListener('click', async () => {
   const API = await weatherAPI;
   await API.changeTemperatureType();
-  await print('Dubai');
+  await renderData(inputLocation);
 });
 
-print('Manchester');
+renderData('Manchester');
