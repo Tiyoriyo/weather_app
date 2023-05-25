@@ -12,7 +12,7 @@ const weatherAPI = (async () => {
   async function getTemperature(string) {
     const data = await getData(string);
     const temp = (tempType === 'c') ? data.current.temp_c : data.current.temp_f;
-    return temp;
+    return `${temp}${tempType.toUpperCase()}`;
   }
 
   async function getFeelTemperature(string) {
@@ -40,6 +40,10 @@ const weatherAPI = (async () => {
     const forecast = data.forecast.forecastday[0];
     const temp = (tempType === 'c') ? forecast.day.avgtemp_c : forecast.day.avgtemp_f;
     return temp;
+  }
+
+  function getTempType() {
+    return tempType.toUpperCase();
   }
 
   function changeTemperatureType() {
@@ -96,6 +100,7 @@ const weatherAPI = (async () => {
     getPressure,
     getPrecipitation,
     getLocation,
+    getTempType,
   };
 })();
 
