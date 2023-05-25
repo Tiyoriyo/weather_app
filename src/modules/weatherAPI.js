@@ -25,21 +25,21 @@ const weatherAPI = (async () => {
     const data = await getData(string);
     const forecast = data.forecast.forecastday[0];
     const temp = (tempType === 'c') ? forecast.day.mintemp_c : forecast.day.mintemp_f;
-    return temp;
+    return `${temp} ${tempType.toUpperCase()}`;
   }
 
   async function getMaxTemperature(string) {
     const data = await getData(string);
     const forecast = data.forecast.forecastday[0];
     const temp = (tempType === 'c') ? forecast.day.maxtemp_c : forecast.day.maxtemp_f;
-    return temp;
+    return `${temp} ${tempType.toUpperCase()}`;
   }
 
   async function getAvgTemperature(string) {
     const data = await getData(string);
     const forecast = data.forecast.forecastday[0];
     const temp = (tempType === 'c') ? forecast.day.avgtemp_c : forecast.day.avgtemp_f;
-    return temp;
+    return `${temp} ${tempType.toUpperCase()}`;
   }
 
   function getTempType() {
