@@ -6,6 +6,7 @@ let inputLocation;
 async function renderData(string) {
   const API = await weatherAPI;
   inputLocation = string;
+  console.log(await API.getData(string));
 
   // Upper Container DOM Items
   const tempCount = document.querySelector('.tempCount');
@@ -13,11 +14,12 @@ async function renderData(string) {
 
   // Lower Container DOM Items
   // Summary Info DOM Items
-  const conditionImg = document.querySelector('.conditionImgContainer');
+  const conditionImg = document.querySelector('.conditionImg');
 
   try {
     tempCount.textContent = await API.getTemperature(string);
     locationName.textContent = await API.getLocation(string);
+    conditionImg.src = await API.getConditionImg(string);
   } catch {
     console.error('Whoops');
   }
