@@ -68,6 +68,39 @@ body {
     flex-direction: column;
 }
 
+.conditionContainer {
+    display: flex;
+    align-self: center;
+    align-items: center;
+}
+
+.conditionImg {
+    width: 100px;
+}
+
+.conditionText {
+    font-style: italic;
+}
+
+.tempSummaryContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 28px;
+}
+
+.tempInfoContainer {
+    display: flex;
+}
+
+.tempTitle {
+    width: 90px;
+}
+
+.minTemp, .maxTemp, .avgTemp {
+    font-size: 18px;
+}
+
 .mainInfoContainer {
     display: flex;
     flex: 1 1 66%;

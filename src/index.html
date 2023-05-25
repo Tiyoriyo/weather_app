@@ -19,14 +19,23 @@
         </div>
         <div class="lowerContainer">
             <div class="sumInfoContainer">
-                <div class="conditionImgContainer">
+                <div class="conditionContainer">
                     <img class="conditionImg">
                     <p class="conditionText"></p>
                 </div>
                 <div class="tempSummaryContainer">
-                    <p class="minTemp"></p>
-                    <p class="maxTemp"></p>
-                    <p class="avgTemp"></p>
+                    <div class="tempInfoContainer">
+                        <p class="tempTitle">Min Temp:</p>
+                        <p class="minTemp"></p>
+                    </div>
+                    <div class="tempInfoContainer">
+                        <p class="tempTitle">Max Temp:</p>
+                        <p class="maxTemp"></p>
+                    </div>
+                    <div class="tempInfoContainer">
+                        <p class="tempTitle">Avg Temp:</p>
+                        <p class="avgTemp"></p>
+                    </div>
                 </div>
             </div>
             <div class="mainInfoContainer">
@@ -34,12 +43,13 @@
                     <h2 class="infoTitle">Forecast Details</h2>
                 </div>
                 <div class="infoContainer">
-
+                    
                 </div>
             </div>
         </div>
     </div>
   </div>
+  <input class="locationInput">
   <button id="tempTypeBtn" style="margin-top: 10px;">Change Temperature</button>
 </body>
 </html>
