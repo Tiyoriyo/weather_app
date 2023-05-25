@@ -5,6 +5,7 @@ let inputLocation;
 
 async function renderData(string) {
   const API = await weatherAPI;
+  inputLocation = string;
 
   // Upper Container DOM Items
   const tempCount = document.querySelector('.tempCount');
