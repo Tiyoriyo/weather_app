@@ -56,6 +56,12 @@ const weatherAPI = (async () => {
     return condition;
   }
 
+  async function getConditionImg(string) {
+    const data = await getData(string);
+    const { icon } = data.current.condition;
+    return icon;
+  }
+
   async function getWindSpeed(string) {
     const data = await getData(string);
     const { wind_kph } = data.current;
@@ -101,6 +107,7 @@ const weatherAPI = (async () => {
     getPrecipitation,
     getLocation,
     getTempType,
+    getConditionImg,
   };
 })();
 
