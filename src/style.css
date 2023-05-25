@@ -75,7 +75,7 @@ body {
 }
 
 .conditionImg {
-    width: 100px;
+
 }
 
 .conditionText {
@@ -99,6 +99,7 @@ body {
 
 .minTemp, .maxTemp, .avgTemp {
     font-size: 18px;
+    font-style: italic;
 }
 
 .mainInfoContainer {
