@@ -70,8 +70,8 @@ body {
 
 .conditionContainer {
     display: flex;
-    align-self: center;
     align-items: center;
+    margin-left: 20px;
 }
 
 .conditionImg {
@@ -86,15 +86,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-left: 28px;
+    margin-left: 20px;
 }
 
 .tempInfoContainer {
     display: flex;
+    flex-direction: column;
 }
 
 .tempTitle {
-    width: 90px;
+     
 }
 
 .minTemp, .maxTemp, .avgTemp {
