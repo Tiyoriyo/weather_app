@@ -11,6 +11,7 @@ async function renderData(string) {
 
   // Upper Container DOM Items
   const tempCount = document.querySelector('.tempCount');
+  const tempType = document.querySelector('.tempType');
   const locationName = document.querySelector('.locationName');
 
   // Lower Container DOM Items
@@ -23,6 +24,7 @@ async function renderData(string) {
 
   try {
     tempCount.textContent = await API.getTemperature(string);
+    tempType.textContent = await API.getTempType();
     locationName.textContent = await API.getLocation(string);
     conditionImg.src = await API.getConditionImg(string);
     conditionText.textContent = await API.getCondition(string);
