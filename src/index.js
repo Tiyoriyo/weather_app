@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import './style.css';
 import weatherAPI from './modules/weatherAPI';
 
@@ -49,3 +50,16 @@ input.addEventListener('keypress', (e) => {
 });
 
 renderData('Dubai');
+
+function adjustFontSize(element) {
+  let inputWidth = element.offsetWidth;
+  let parentWidth = element.parentElement.offsetWidth;
+
+  while (inputWidth > parentWidth) {
+    const style = window.getComputedStyle(element).getPropertyValue('font-size');
+    const fontSize = parseFloat(style);
+    element.style.fontSize = `${fontSize - 1}px`;
+    inputWidth = element.offsetWidth;
+    parentWidth = element.parentElement.offsetWidth;
+  }
+}
