@@ -12,7 +12,7 @@ const weatherAPI = (async () => {
   async function getTemperature(string) {
     const data = await getData(string);
     const temp = (tempType === 'c') ? data.current.temp_c : data.current.temp_f;
-    return `${temp}${tempType.toUpperCase()}`;
+    return temp;
   }
 
   async function getFeelTemperature(string) {
