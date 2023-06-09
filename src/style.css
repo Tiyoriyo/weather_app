@@ -123,14 +123,23 @@ body {
 .infoContainer {
     display: flex;
     flex-wrap: wrap;
+    gap: 50px;
 }
 
 .infoItem {
     display: flex;
     flex-direction: column;
-    flex: auto;
-    width: 50%;
+    width: 40%;
     height: 50px;
+}
+
+.windSpeedText {
+    display: flex;
+    gap: 5px;
+}
+
+.infoTitle {
+    border-bottom: 1px solid black;
 }
 
 #tempTypeBtn {

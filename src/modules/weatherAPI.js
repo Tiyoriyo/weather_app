@@ -18,7 +18,7 @@ const weatherAPI = (async () => {
   async function getFeelTemperature(string) {
     const data = await getData(string);
     const temp = (tempType === 'c') ? data.current.feelslike_c : data.current.feelslike_f;
-    return temp;
+    return `${temp} ${tempType.toUpperCase()}`;
   }
 
   async function getMinTemperature(string) {
@@ -65,7 +65,7 @@ const weatherAPI = (async () => {
   async function getWindSpeed(string) {
     const data = await getData(string);
     const { wind_kph } = data.current;
-    return wind_kph;
+    return `${wind_kph} km/h`;
   }
 
   async function getWindDirection(string) {
@@ -77,13 +77,13 @@ const weatherAPI = (async () => {
   async function getPressure(string) {
     const data = await getData(string);
     const { pressure_mb } = data.current;
-    return pressure_mb;
+    return `${pressure_mb} mb`;
   }
 
   async function getPrecipitation(string) {
     const data = await getData(string);
     const { precip_mm } = data.current;
-    return precip_mm;
+    return `${precip_mm} mm`;
   }
 
   async function getLocation(string) {

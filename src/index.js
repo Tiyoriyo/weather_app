@@ -22,15 +22,29 @@ async function renderData(string) {
   const maxTempText = document.querySelector('.maxTemp');
   const avgTempText = document.querySelector('.avgTemp');
 
+  // Forecast Details DOM Items
+  const windspeedText = document.querySelector('.windSpeed');
+  const windDirectionText = document.querySelector('.windDirection');
+  const pressureText = document.querySelector('.pressure');
+  const precipitationText = document.querySelector('.precipitation');
+  const feelsLikeText = document.querySelector('.feelLike');
+
   try {
     tempCount.textContent = await API.getTemperature(string);
     tempType.textContent = await API.getTempType();
     locationName.textContent = await API.getLocation(string);
+
     conditionImg.src = await API.getConditionImg(string);
     conditionText.textContent = await API.getCondition(string);
     minTempText.textContent = await API.getMinTemperature(string);
     maxTempText.textContent = await API.getMaxTemperature(string);
     avgTempText.textContent = await API.getAvgTemperature(string);
+
+    windspeedText.textContent = await API.getWindSpeed(string);
+    windDirectionText.textContent = await API.getWindDirection(string);
+    pressureText.textContent = await API.getPressure(string);
+    precipitationText.textContent = await API.getPrecipitation(string);
+    feelsLikeText.textContent = await API.getFeelTemperature(string);
   } catch {
     console.error('Whoops');
   }
@@ -52,16 +66,3 @@ input.addEventListener('keypress', (e) => {
 });
 
 renderData('Tel Aviv');
-
-function adjustFontSize(element) {
-  let inputWidth = element.offsetWidth;
-  let parentWidth = element.parentElement.offsetWidth;
-
-  while (inputWidth > parentWidth) {
-    const style = window.getComputedStyle(element).getPropertyValue('font-size');
-    const fontSize = parseFloat(style);
-    element.style.fontSize = `${fontSize - 1}px`;
-    inputWidth = element.offsetWidth;
-    parentWidth = element.parentElement.offsetWidth;
-  }
-}
