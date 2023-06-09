@@ -116,7 +116,21 @@ body {
 
 .mainInfoContainer {
     display: flex;
+    flex-direction: column;
     flex: 1 1 66%;
+}
+
+.infoContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    width: 50%;
+    height: 50px;
 }
 
 #tempTypeBtn {

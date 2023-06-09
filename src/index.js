@@ -51,7 +51,7 @@ input.addEventListener('keypress', (e) => {
   }
 });
 
-renderData('Dubai');
+renderData('Tel Aviv');
 
 function adjustFontSize(element) {
   let inputWidth = element.offsetWidth;
