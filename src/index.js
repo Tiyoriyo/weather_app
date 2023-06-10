@@ -29,7 +29,7 @@ async function renderData(string) {
 
   try {
     tempCount.textContent = await API.getTemperature(string);
-    tempType.textContent = await API.getTempType();
+    tempType.textContent = API.getTempType();
     locationName.textContent = await API.getLocation(string);
 
     minTempText.textContent = await API.getMinTemperature(string);
