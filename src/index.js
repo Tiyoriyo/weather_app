@@ -13,6 +13,7 @@ async function renderData(string) {
   const tempCount = document.querySelector('.tempCount');
   const tempType = document.querySelector('.tempType');
   const locationName = document.querySelector('.locationName');
+  locationName.style.fontSize = '48px';
 
   // Lower Container DOM Items
   // Summary Info DOM Items
@@ -41,8 +42,10 @@ async function renderData(string) {
     pressureText.textContent = await API.getPressure(string);
     precipitationText.textContent = await API.getPrecipitation(string);
     feelsLikeText.textContent = await API.getFeelTemperature(string);
-  } catch {
-    console.error('Whoops');
+
+    reduceTextSize(locationName);
+  } catch (error) {
+    console.error(error);
   }
 }
 
@@ -60,5 +63,13 @@ input.addEventListener('keypress', (e) => {
     input.value = '';
   }
 });
+
+function reduceTextSize(element) {
+  while (element.offsetWidth > element.parentElement.offsetWidth) {
+    element.style.fontSize = `${parseFloat(window.getComputedStyle(element).fontSize) - 1}px`;
+  }
+}
+
+window.reduceTextSize = reduceTextSize;
 
 renderData('Tel Aviv');

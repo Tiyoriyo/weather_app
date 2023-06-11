@@ -46,6 +46,15 @@ body {
     background-color: #ef476f;
     z-index: 1;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 0 20px 0 20px;
+}
+
+.upperLeft, .upperRight {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
 }
 
 .tempContainer {
@@ -62,7 +71,6 @@ body {
 
 .tempCount {
     font-size: 48px;
-    margin-left: 20px;
 }
 
 .locationName {
@@ -83,7 +91,7 @@ body {
     flex-direction: column;
     gap: 10px;
     padding-left: 50px;
-    font-size: 24px;
+    font-size: 1.5em;
     justify-content: center;
 }
 
