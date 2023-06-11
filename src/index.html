@@ -10,18 +10,22 @@
   <div class="container">
     <div class="main">
         <div class="upperContainer">
-            <div class="upperLeft">
+            <!-- <div class="upperLeft">
                 <div class="tempContainer">
                     <p class="tempCount"></p>
                     <p class="tempType"></p>
                 </div>
-            </div>
+            </div> -->
             <div class="upperRight">
                 <p class="locationName"></p>
             </div>
         </div>
         <div class="lowerContainer">
             <div class="infoContainer">
+                <div class="infoItem">
+                    <p class="infoTitle">Current Temp</p>
+                    <p class="infoText curTemp">-</p>
+                </div>
                 <div class="infoItem">
                     <p class="infoTitle">Min Temp</p>
                     <p class="infoText minTemp">-</p>
@@ -57,7 +61,9 @@
         </div>
     </div>
   </div>
-  <input class="locationInput">
-  <button id="tempTypeBtn" style="margin-top: 10px;">Change Temperature</button>
+  <div class="inputContainer">
+      <input class="locationInput">
+      <button id="tempTypeBtn">Change Temperature</button>
+  </div>
 </body>
 </html>

@@ -10,13 +10,14 @@ async function renderData(string) {
   console.log(await API.getData(string));
 
   // Upper Container DOM Items
-  const tempCount = document.querySelector('.tempCount');
-  const tempType = document.querySelector('.tempType');
+  // const tempCount = document.querySelector('.tempCount');
+  // const tempType = document.querySelector('.tempType');
   const locationName = document.querySelector('.locationName');
   locationName.style.fontSize = '48px';
 
   // Lower Container DOM Items
   // Summary Info DOM Items
+  const curTempText = document.querySelector('.curTemp');
   const minTempText = document.querySelector('.minTemp');
   const maxTempText = document.querySelector('.maxTemp');
   const avgTempText = document.querySelector('.avgTemp');
@@ -29,10 +30,11 @@ async function renderData(string) {
   const feelsLikeText = document.querySelector('.feelLike');
 
   try {
-    tempCount.textContent = await API.getTemperature(string);
-    tempType.textContent = API.getTempType();
+    // tempCount.textContent = await API.getTemperature(string);
+    // tempType.textContent = API.getTempType();
     locationName.textContent = await API.getLocation(string);
 
+    curTempText.textContent = await API.getTemperature(string);
     minTempText.textContent = await API.getMinTemperature(string);
     maxTempText.textContent = await API.getMaxTemperature(string);
     avgTempText.textContent = await API.getAvgTemperature(string);
@@ -45,7 +47,7 @@ async function renderData(string) {
 
     reduceTextSize(locationName);
   } catch (error) {
-    console.error(error);
+    reduceTextSize(locationName);
   }
 }
 
