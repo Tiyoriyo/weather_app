@@ -56,6 +56,14 @@ button.addEventListener('click', async () => {
   const API = await weatherAPI;
   await API.changeTemperatureType();
   await renderData(inputLocation);
+  button.textContent = (button.textContent === 'C') ? 'F' : 'C';
+  if (button.textContent === 'C') {
+    button.style.backgroundColor = '#ffd166';
+    button.style.color = 'black';
+  } else {
+    button.style.backgroundColor = '#ef476f';
+    button.style.color = 'white';
+  }
 });
 
 const input = document.querySelector('.locationInput');
