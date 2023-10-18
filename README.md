@@ -11,8 +11,8 @@ You can experience the Weather Application firsthand! Check out the [Live Demo](
 To use the Weather Application, follow these simple steps:
 
 1. In the application's input field, type in the name of the location for which you want to retrieve weather data.
-2. Press the "Enter" key or click a submit button to initiate the request.
-3. The application will fetch and display current weather information for the specified location, including details like temperature, humidity, wind speed, and conditions.
+2. Press the "Enter" key.
+3. The application will fetch and display current weather information for the specified location, including details like temperature, pressure, wind speed, and conditions.
 
 ## Project Overview 📦
 
